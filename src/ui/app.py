@@ -72,11 +72,12 @@ def main():
         with st.chat_message("assistant"):
             with st.spinner("Searching knowledge base..."):
                 try:
-                    response = chain.invoke(prompt, callbacks=[opik_tracer])
+                    response_stream = chain.stream(prompt, config={"callbacks": [opik_tracer]})
+                    response = st.write_stream(response_stream)
                 except Exception as e:
                     response = f"Error: {str(e)}"
                 
-                st.markdown(response)
+                #st.markdown(response)
         
         # Add assistant message
         st.session_state.messages.append({"role": "assistant", "content": response})
