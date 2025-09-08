@@ -2,6 +2,13 @@
 
 import streamlit as st
 from functools import lru_cache
+import sys
+from pathlib import Path
+
+# Add project root to Python path for Streamlit Cloud compatibility
+project_root = Path(__file__).parent.parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
 from src.core.config import Config, get_config
 from src.core.rag import create_rag_chain

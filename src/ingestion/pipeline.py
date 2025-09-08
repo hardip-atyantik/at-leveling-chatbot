@@ -3,6 +3,7 @@
 import os
 import gc
 import time
+import sys
 from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from functools import partial
@@ -10,6 +11,11 @@ from tqdm import tqdm
 
 from langchain_community.document_loaders import PyPDFium2Loader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# Add project root to Python path for deployment compatibility
+project_root = Path(__file__).parent.parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
 from src.core.config import Config, get_config, handle_errors
 from src.core.rag import create_embeddings, create_qdrant_client, create_vector_store, create_or_verify_collection
