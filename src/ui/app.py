@@ -41,13 +41,13 @@ def initialize():
 def main():
     """Main Streamlit application"""
     st.set_page_config(
-        page_title="Atyantik Knowledge Assistant",
+        page_title="Atyantik Leveling Guide",
         page_icon="🤖",
         layout="wide"
     )
     
-    st.title("🤖 Atyantik Knowledge Assistant")
-    st.markdown("Ask me anything about Atyantik!")
+    st.title("🤖 Atyantik Leveling Guide")
+    st.markdown("Ask me anything about Atyantik Leveling Guide!")
     
     # Initialize chain
     chain, opik_tracer = initialize()
