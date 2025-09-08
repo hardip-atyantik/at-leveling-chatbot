@@ -20,7 +20,7 @@ class Config:
     chunk_size: int = field(default_factory=lambda: int(os.getenv("CHUNK_SIZE", "2048")))
     chunk_overlap: int = field(default_factory=lambda: int(os.getenv("CHUNK_OVERLAP", "0")))
     batch_size: int = field(default_factory=lambda: int(os.getenv("BATCH_SIZE", "2")))
-    mmr_k: int = field(default_factory=lambda: int(os.getenv("MMR_K", "10")))
+    mmr_k: int = field(default_factory=lambda: int(os.getenv("MMR_K", "3")))
     embedding_batch_size: int = field(default_factory=lambda: int(os.getenv("EMBEDDING_BATCH_SIZE", "1000")))
     
     # File paths
