@@ -1,0 +1,29 @@
+"""Prompt configuration loader for RAG chatbot"""
+
+from pathlib import Path
+
+class PromptLoader:
+    """Load prompts from text files"""
+    
+    def __init__(self, prompts_dir="prompts"):
+        """Initialize prompt loader with prompts directory"""
+        self.prompts_dir = Path(prompts_dir)
+        if not self.prompts_dir.exists():
+            raise FileNotFoundError(f"Prompts directory not found: {prompts_dir}")
+    
+    def load_prompt(self, filename):
+        """Load a single prompt from text file"""
+        filepath = self.prompts_dir / filename
+        if not filepath.exists():
+            raise FileNotFoundError(f"Prompt file not found: {filepath}")
+        
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return f.read().strip()
+    
+    def get_system_prompt(self):
+        """Load system prompt for CTO persona"""
+        return self.load_prompt("system_cto.txt")
+    
+    def get_user_prompt_template(self):
+        """Load user query prompt template"""
+        return self.load_prompt("user_query.txt")

@@ -1,0 +1,19 @@
+/venv
+.env
+
+# PDF files
+*.pdf
+Career Leveling Guide.pdf
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db

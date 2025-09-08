@@ -1,0 +1,9 @@
+Answer the USER QUERY based on the CONTEXT below.
+If the question cannot be answered using the information provided answer with `I dont know , not enough information provided.`
+<retrieved_chunks>
+CONTEXT: {context}
+</retrieved_chunks>
+ 
+<query>
+USER QUERY: {query}
+</query>
