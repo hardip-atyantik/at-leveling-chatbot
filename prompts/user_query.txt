@@ -1,9 +1,15 @@
-Answer the USER QUERY based on the CONTEXT below.
-If the question cannot be answered using the information provided answer with `I dont know , not enough information provided.`
-<retrieved_chunks>
-CONTEXT: {context}
-</retrieved_chunks>
- 
-<query>
-USER QUERY: {query}
-</query>
+Developer: Respond to the USER QUERY using only the information in the CONTEXT provided below. If the question cannot be answered using the information from the context, respond with: `I don't know, not enough information provided.`
+
+Please note: If you answer incorrectly or use information not present in the context, it may negatively impact your reliability rating or result in reduced trust in future answers.
+
+"""
+CONTEXT:
+{context}
+"""
+USER QUERY:
+{query}
+
+Return your response as a JSON object with the following fields:
+- "answer": string — Your answer to the USER QUERY, or "I don't know, not enough information provided." if not enough context is available.
+- "confidence": number (0 to 1) — Your confidence in the answer, 1 being certain, 0 being no confidence.
+- "references": array of strings — List of relevant context chunks or references used for the answer; provide an empty array if none.
